@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - GreenGlow</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* Reusing the same CSS variables and base styles */
+        :root {
+            --primary-green: #2e8b57;
+            --secondary-green: #3cb371;
+            --light-green: #98fb98;
+            --dark-green: #006400;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        /* Consistent Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1583744946564-b52d01e2da64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 5rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 3rem;
+        }
+        
+        /* Products Table */
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .products-table th {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 1.2rem;
+            text-align: left;
+        }
+        
+        .products-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+            vertical-align: middle;
+        }
+        
+        .products-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .products-table tr:hover {
+            background-color: var(--light-green);
+        }
+        
+        .product-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid var(--light-gray);
+        }
+        
+        .product-name {
+            font-weight: 600;
+            color: var(--dark-green);
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--dark-green);
+        }
+        
+        /* Product Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--primary-green);
+            border-radius: 30px;
+            color: var(--primary-green);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .products-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .category-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Green<span>Glow</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Our Products</a>
+                <a href="tips.html">Eco Tips</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="page-header">
+        <h1>Our Eco-Friendly Products</h1>
+        <p>Sustainable alternatives for everyday living</p>
+    </section>
+    
+    <section class="main-content">
+        <h2 class="section-title">Shop Sustainably</h2>
+        
+        <div class="categories">
+            <button class="category-btn active">All Products</button>
+            <button class="category-btn">Kitchen</button>
+            <button class="category-btn">Bathroom</button>
+            <button class="category-btn">On-the-Go</button>
+            <button class="category-btn">Home</button>
+        </div>
+        
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="product-name">Reusable Grocery Bag Set</td>
+                    <td>Set of 3 organic cotton mesh produce bags and 2 canvas tote bags</td>
+                    <td class="product-price">R24.99</td>
+                    <td><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Reusable bags" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+                <tr>
+                    <td class="product-name">Bamboo Toothbrush</td>
+                    <td>Biodegradable bamboo handle with charcoal-infused bristles</td>
+                    <td class="product-price">R5.99</td>
+                    <td><img src="images/th (1).jpeg" alt="Bamboo toothbrush" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+                <tr>
+                    <td class="product-name">Stainless Steel Straw Set</td>
+                    <td>4 straight and 2 bent straws with cleaning brush in cotton pouch</td>
+                    <td class="product-price">R12.50</td>
+                    <td><img src="https://images.unsplash.com/photo-1585059895524-72359e06133a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Metal straws" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+                <tr>
+                    <td class="product-name">Beeswax Food Wraps</td>
+                    <td>Set of 3 organic cotton wraps coated with beeswax, tree resin, and jojoba oil</td>
+                    <td class="product-price">R18.95</td>
+                    <td><img src="https://images.unsplash.com/photo-1575501265016-ae78c708a09c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Beeswax wraps" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+                <tr>
+                    <td class="product-name">Solid Shampoo Bar</td>
+                    <td>Plastic-free shampoo bar with lavender and tea tree oil</td>
+                    <td class="product-price">R9.99</td>
+                    <td><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Shampoo bar" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+                <tr>
+                    <td class="product-name">Compostable Phone Case</td>
+                    <td>Biodegradable phone case made from plant-based materials</td>
+                    <td class="product-price">R19.99</td>
+                    <td><img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Phone case" class="product-image"></td>
+                    <td><a href="#" class="btn">Add to Cart</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>&copy; 2025 GreenGlow Eco-Friendly Living Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category filter functionality
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // In a full implementation, this would filter the products
+                });
+            });
+            
+            // Animation for table rows on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.products-table tbody tr').forEach((row, index) => {
+                row.style.opacity = 0;
+                row.style.transform = 'translateX(20px)';
+                row.style.transition = `opacity 0.5s ${index * 0.1}s, transform 0.5s ${index * 0.1}s`;
+                observer.observe(row);
+            });
+        });
+    </script>
+</body>
+</html>

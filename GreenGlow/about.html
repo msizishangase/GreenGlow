@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GreenGlow</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* Reusing the same CSS variables and base styles from homepage */
+        :root {
+            --primary-green: #2e8b57;
+            --secondary-green: #3cb371;
+            --light-green: #98fb98;
+            --dark-green: #006400;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+        
+        /* Header Styles - Consistent with homepage */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        /* Page-specific styles */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section {
+            padding: 5rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 3rem;
+        }
+        
+        /* Company Story Section */
+        .company-story {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .company-text {
+            flex: 1;
+        }
+        
+        .company-text h2 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+        }
+        
+        .company-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .company-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .company-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Team Section */
+        .team-section {
+            background-color: var(--white);
+            padding: 5rem 10%;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        .student-id {
+            font-weight: bold;
+            color: var(--dark-green);
+            margin-top: 0.5rem;
+        }
+        
+        /* Vision Section */
+        .vision-section {
+            text-align: center;
+            padding: 5rem 10%;
+        }
+        
+        .vision-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .vision-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-green);
+        }
+        
+        .vision-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer - Consistent with homepage */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .company-story {
+                flex-direction: column;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">Green<span>Glow</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Our Products</a>
+                <a href="tips.html">Eco Tips</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="page-header">
+        <h1>About GreenGlow</h1>
+        <p>Meet the passionate team behind our mission to make sustainable living accessible to everyone</p>
+    </section>
+    
+    <section class="content-section">
+        <div class="company-story">
+            <div class="company-text">
+                <h2>Our Story</h2>
+                <p>GreenGlow was founded in 2023 by a group of environmental science students who shared a common vision - to bridge the gap between eco-conscious ideals and everyday practicality. What began as a university project quickly evolved into a movement.</p>
+                <p>Frustrated by the lack of affordable, stylish, and truly sustainable products on the market, we set out to create solutions that don't require consumers to compromise on quality or aesthetics to make environmentally responsible choices.</p>
+                <p>Today, GreenGlow has grown into a trusted name in sustainable living, offering carefully curated products and resources to help individuals reduce their environmental footprint without sacrificing modern comforts.</p>
+            </div>
+            <div class="company-image">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="GreenGlow team working together">
+            </div>
+        </div>
+    </section>
+    
+    <section class="team-section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 18.07.01.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Andile Sithole</h3>
+                    <p>Co-Founder & CEO</p>
+                    <p class="student-id">22322114</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.03.45.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Nkosikhona Mzimela</h3>
+                    <p>Co-Founder & Product Designer</p>
+                    <p class="student-id">22364828</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.08.03.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Nkosingiphile Ntshakala</h3>
+                    <p>Marketing Director</p>
+                    <p class="student-id">22157310</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.26.08.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Nkululeko Dubazane</h3>
+                    <p>Operations Manager</p>
+                    <p class="student-id">22274604</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 5 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.29.03.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Alwande Mlangeni </h3>
+                    <p>COO</p>
+                    <p class="student-id">22409174</p>
+                </div>
+            </div>
+
+            <!-- Team Member 6 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.43.03.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Uknown</h3>
+                    <p>Product Designer</p>
+                    <p class="student-id">Uknown</p>
+                </div>
+            </div>
+
+            <!-- Team Member 7 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 22.45.31.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Nqobani Mhlongo</h3>
+                    <p>Dev-Ops Engineer</p>
+                    <p class="student-id">22309674</p>
+                </div>
+            </div>
+
+            <!-- Team Member 8 -->
+            <div class="team-member">
+                <img src="group-members/WhatsApp Image 2025-04-14 at 23.59.03.jpeg" alt="Team Member" class="member-image">
+                <div class="member-info">
+                    <h3>Lindiswa Sindile</h3>
+                    <p>UI/UX Web Designer</p>
+                    <p class="student-id">22234374</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="vision-section">
+        <h2 class="section-title">Our Vision</h2>
+        <p>We envision a world where sustainable living is not a luxury or an afterthought, but the default choice for consumers and businesses alike.</p>
+        
+        <div class="vision-cards">
+            <div class="vision-card">
+                <h3>Environmental Impact</h3>
+                <p>To reduce single-use plastic consumption by 50% among our customers within 5 years through our product alternatives and education programs.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Community</h3>
+                <p>To build a global community of 1 million eco-conscious individuals who support and learn from each other's sustainability journeys.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Innovation</h3>
+                <p>To pioneer at least 5 groundbreaking sustainable materials or technologies by 2030 that will transform consumer product industries.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>&copy; 2025 GreenGlow Eco-Friendly Living Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation for team members on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.team-member').forEach(member => {
+                member.style.opacity = 0;
+                member.style.transform = 'translateY(20px)';
+                member.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(member);
+            });
+            
+            // Animation for vision cards
+            document.querySelectorAll('.vision-card').forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ${index * 0.2}s, transform 0.5s ${index * 0.2}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
